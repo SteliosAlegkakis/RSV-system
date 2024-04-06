@@ -1,9 +1,13 @@
-How to Run:
+<h2>RSV system</h2>
+RSV system is used to allow users of an organization to make room reservations for meetings lectures etc.
+Build as a project for my systems design course using MySQL, Java servlets for the backend and html-javascript for the frontend. 
+
+<h3>How to Run:</h3>
 • Open XAMPP and start Apache and MySQL.
 • Configure Tomcat in your IDE.
 • Import the code (implementation folder), build and run.
 
-Requirements:
+<h3>Requirements:</h3>
 • Java version 11.0.17 (or newer).
 • XAMPP control panel.
 • Tomcat version 9.0.69 (or newer).
