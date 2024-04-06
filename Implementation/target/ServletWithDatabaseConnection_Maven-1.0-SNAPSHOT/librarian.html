@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Librarian</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="librarian.js" defer></script>
+    <script src="mainpage.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+</head>
+<body onload="isLoggedIn()">
+  <div class="column" style="align-items: center">
+
+        <form id="loginForm" name="loginForm" onsubmit='login();return false;'>
+          <h1>E-Libraries</h1>
+          <div class="column" style="align-items: flex-start">
+            <h4>Username</h4>
+            <input type="text"  id="login_username" name="username" required><br>
+          </div>
+          <div class="column" style="align-items: flex-start">
+            <h4>Password</h4>
+            <input type="password"  name="password" id="login_password" required><br>
+          </div>
+          <h4 id="wrong_login" style="display: none;color: red;">Username or Password incorrect</h4>
+          <button class="submit">Login</button>
+        </form>
+
+        <div id="mainpage" style="display:none;">
+            <div class="row" id="menu_bar" style="align-items: center;justify-content: center">
+                <h2 style="color: #50A8EA;width: 14rem;margin: 0">E-Libraries</h2>
+                <div class="row" style="padding: 0;align-items: center">
+                    <h3 class="menu_button" id="addBook" onclick="showAdd()">Add Books</h3>
+                    <h3 class="menu_button" id="addAvailability" onclick="showAvailability()">Update Availability</h3>
+                    <h3 class="menu_button" id="borrowings">Show Borrowings</h3>
+                    <i id="user_icon" style='font-size:24px' class='far' onclick="user_menu()">&#xf2bd;</i>
+                </div>
+            </div>
+            <div id="user_menu" style="display: none">
+                <h3 class="menu_button" id="show_details" onclick="getLibrarian()">Show library Info</h3>
+                <h3 class="menu_button" id="update_details" onclick="showUpdateForm()">Update Library Info</h3>
+                <h3 class="menu_button" id="logout" onclick="logout()">Logout</h3>
+            </div>
+        </div>
+
+        <div id="ajaxContent" class="column" style="align-items: center;width: 100%;"></div>
+
+        <form id="updateForm" style="display:none;" onsubmit="updateInfo('librarian');return false">
+          <h1>Update Library Info</h1>
+          <div class="row">
+              <div class="column" style="align-items: flex-start">
+                  <h4>Password</h4>
+                  <input name="password" type="password">
+              </div>
+              <div class="column" style="align-items: flex-start">
+                  <h4>Phone Number</h4>
+                  <input name="telephone" type="text">
+              </div>
+          </div>
+          <div class="row">
+              <div class="column" style="align-items: flex-start">
+                  <h4>Country</h4>
+                  <input name="country" type="text">
+              </div>
+              <div class="column" style="align-items: flex-start">
+                  <h4>City</h4>
+                  <input name="city" type="text">
+              </div>
+          </div>
+          <div class="row">
+              <div class="column" style="align-items: flex-start">
+                  <h4>Address</h4>
+                  <input name="address" type="text">
+              </div>
+              <div class="column" style="align-items: flex-start">
+                  <h4>Personal Page</h4>
+                  <input name="personalpage" type="text">
+              </div>
+          </div>
+          <button class="submit">Update</button>
+        </form>
+
+      <form id="addForm" style="display:none;" onsubmit="insertBook();return false">
+          <h1>Add New Book</h1>
+          <div class="row">
+              <div class="column" style="align-items: flex-start">
+                  <h4>ISBN</h4>
+                  <input name="isbn" type="text" required>
+              </div>
+              <div class="column" style="align-items: flex-start">
+                  <h4>Title</h4>
+                  <input name="title" type="text" required>
+              </div>
+          </div>
+          <div class="row">
+              <div class="column" style="align-items: flex-start">
+                  <h4>Authors</h4>
+                  <input name="authors" type="text" required>
+              </div>
+              <div class="column" style="align-items: flex-start">
+                  <h4>Genre</h4>
+                  <input name="genre" type="text" required>
+              </div>
+          </div>
+          <div class="row">
+              <div class="column" style="align-items: flex-start">
+                  <h4>Pages</h4>
+                  <input name="pages" type="text" required>
+              </div>
+              <div class="column" style="align-items: flex-start">
+                  <h4>Publication Year</h4>
+                  <input name="publicationyear" type="text" required>
+              </div>
+          </div>
+          <div class="row">
+              <div class="column" style="align-items: flex-start">
+                  <h4>Url</h4>
+                  <input name="url" type="text" required>
+              </div>
+              <div class="column" style="align-items: flex-start">
+                  <h4>Photo</h4>
+                  <input name="photo" type="text" required>
+              </div>
+          </div>
+          <button class="submit">Submit</button>
+      </form>
+
+      <form id="editAvailability" style="display:none;" onsubmit="return false">
+          <h1>Book Availability</h1>
+          <div class="row">
+              <input type="text" placeholder="ISBN">
+              <input type="text" placeholder="Availability">
+          </div>
+          <button class="submit">Update</button>
+      </form>
+
+  </div>
+</body>
+</html>

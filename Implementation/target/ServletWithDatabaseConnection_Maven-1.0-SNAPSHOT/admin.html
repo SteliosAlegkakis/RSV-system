@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <title>RSV Admin</title>
+</head>
+
+<body>
+<script src="js/components.js"></script>
+<script src="js/login.js"></script>
+<script src="js/admin.js"></script>
+<div class="main-page">
+  <div class="sidebar">
+    <div class="header">
+      <h1>RSV System Admin</h1>
+    </div>
+    <div class="menu">
+      <div class="menu-button" onclick="getReservations()">
+        <h2>View Requests</h2>
+      </div>
+      <div class="menu-button">
+        <h2>Edit Rooms</h2>
+      </div>
+      <div class="menu-button" onclick="showProfile('AdminServlet')">
+        <h2>Profile</h2>
+      </div>
+    </div>
+  </div>
+  <div id="ajax-content"></div>
+</div>
+</body>

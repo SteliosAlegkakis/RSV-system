@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>RSV System Register</title>
+</head>
+
+<body>
+    <script src="js/login.js"></script>
+    <div class="form-container" id="register">
+        <form onsubmit="return false" id="register-form">
+            <h1>RSV System</h1>
+            <div class="input-element">
+                <label for="fname">First Name</label>
+                <input id="fname" name="fname" type="text" required>
+            </div>
+            <div class="input-element">
+                <label for="lname">Last Name</label>
+                <input id="lname" name="lname" type="text" required>
+            </div>
+            <div class="input-element">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" required>
+            </div>
+            <div class="input-element">
+                <label for="password">Password</label>
+                <input id="password" name="password" type="password" required>
+            </div>
+            <div class="input-element">
+                <label for="phone">Phone Number</label>
+                <input id="phone" name="phone" type="text" required>
+            </div>
+            <div class="input-element">
+                <label for="dept">Department</label>
+                <input id="dept" name="department" type="text" required>
+            </div>
+            <h1 class="title error-message" id="register-error" style="display: none">Could not register user</h1>
+            <button class="submit" onclick="register()">
+                <p>Sign Up</p>
+            </button>
+        </form>
+    </div>
+</body>

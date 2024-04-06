@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>RSV System Login</title>
+</head>
+
+<body>
+    <script src="js/login.js"></script>
+    <div class="form-container" id="login">
+        <form onsubmit="return false;" id="login-form">
+            <h1>RSV System</h1>
+            <div class="input-element">
+                <label for="email">email</label>
+                <input id="email" name="email" type="email" required>
+            </div>
+            <div class="input-element">
+                <label for="password">password</label>
+                <input id="password" name="password" type="password" required>
+            </div>
+            <h1 class="title error-message" id="wrong-login" style="display: none">Wrong credentials</h1>
+            <button class="submit" onclick="login('UserServlet')">
+                <p>Login</p>
+            </button>
+            <p id="not-register">Not registered yet? <a href="register.html">Create an account.</a></p>
+        </form>
+    </div>
+</body>

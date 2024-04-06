@@ -1,0 +1,10 @@
+How to Run:
+• Open XAMPP and start Apache and MySQL.
+• Configure Tomcat in your IDE.
+• Import the code (implementation folder), build and run.
+
+Requirements:
+• Java version 11.0.17 (or newer).
+• XAMPP control panel.
+• Tomcat version 9.0.69 (or newer).
+• An IDE (intelliJ, eclipse etc).
