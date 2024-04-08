@@ -1,3 +1,7 @@
+RSV system
+RSV system is used to allow users of an organization to make room reservations for meetings lectures etc.
+Build as a project for my systems design course using MySQL, Java servlets for the backend and html-javascript for the frontend. 
+
 How to Run:
 • Open XAMPP and start Apache and MySQL.
 • Configure Tomcat in your IDE.
