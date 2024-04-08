@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Reservation {
     int r_id,emp_id,room_id,guests,start,end;
-    String status;
+    String status, name;
 
     String title;
     Date date;
@@ -80,4 +80,5 @@ public class Reservation {
     public void setR_id(int r_id) {
         this.r_id = r_id;
     }
+
 }

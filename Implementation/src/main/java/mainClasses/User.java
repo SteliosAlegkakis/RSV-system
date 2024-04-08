@@ -186,6 +186,28 @@ public class User {
         stmt.close();
     }
 
+    public String getHistory() throws SQLException, ClassNotFoundException {
+        Connection con = DB_Connection.getConnection();
+        Statement stmt = con.createStatement();
+        ResultSet rs;
+        String json = "";
+        try {
+//            rs = stmt.executeQuery("SELECT * FROM reservation_request WHERE emp_id='"+emp_id+"'");
+            rs = stmt.executeQuery("SELECT  reservation_request.*, room.name FROM reservation_request JOIN room ON reservation_request.room_id = room.room_id WHERE emp_id='"+emp_id+"'");
+            while(rs.next()) {
+                Gson gson = new Gson();
+                Reservation rsv = gson.fromJson(JSON_Converter.getResultsToJSON(rs), Reservation.class);
+                json += gson.toJson(rsv, Reservation.class) + " | ";
+                System.out.println(gson.toJson(rsv, Reservation.class));
+            }
+        }
+        catch(Exception e) {
+            System.out.println("Got an exception! ");
+            System.err.println(e.getMessage());
+        }
+        return json;
+    }
+
     public int getEmp_id() {
         return emp_id;
     }

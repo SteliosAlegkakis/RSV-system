@@ -24,6 +24,7 @@ public class UserServlet extends HttpServlet {
         else if(req.equals("logout")) logout(request,response);
         else if(req.equals("profile")) profile(request,response);
         else if(req.equals("getRooms")) getRooms(request,response);
+        else if(req.equals("history")) getHistory(request, response);
     }
 
     @Override
@@ -186,5 +187,19 @@ public class UserServlet extends HttpServlet {
         } catch (ParseException e) { System.err.println("ParseException at reservationRequest");}
         catch (SQLException e) { System.err.println("SQLException at reservationRequest");}
         catch (ClassNotFoundException e) { System.err.println("ClassNotFoundException at reservationRequest"); }
+    }
+
+    public void getHistory(HttpServletRequest request, HttpServletResponse response) {
+        System.out.println("getHistory");
+        try{
+            String json = "";
+            if(loggedIn != null) json = loggedIn.getHistory();
+            PrintWriter out = response.getWriter();
+            out.println(json);
+            response.setStatus(200);
+        }
+        catch (SQLException e) {System.err.println("SQLException in getHistory");}
+        catch (ClassNotFoundException e) {System.err.println("ClassNotFoundException in getHistory");}
+        catch (IOException e) {System.err.println("IOException in getHistory");}
     }
 }

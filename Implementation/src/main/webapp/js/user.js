@@ -68,3 +68,30 @@ function bookRoom(id){
     xhr.send("whatever");
 }
 
+function getHistory() {
+    let xhr = new XMLHttpRequest();
+    xhr.onload = function () {
+        if(xhr.readyState === 4 && xhr.status === 200) {
+            console.log(xhr.responseText);
+            let reservations = jsonArrayReader(xhr);
+            if(reservations.length === 0)
+                document.getElementById('ajax-content').innerHTML = title("You haven't made any reservations yet.");
+            else
+                showHistory(reservations);
+        }
+        else if(xhr.status != 200) {
+            document.getElementById('ajax-content').innerHTML = title("You haven't made any reservations yet.");
+        }
+    }
+    let data = "request=history";
+    xhr.open('GET','UserServlet?'+data);
+    xhr.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+    xhr.send();
+}
+
+function showHistory(reservations) {
+    let html = title("Reservation History");
+    for(let i = 0; i < reservations.length; i++)
+        html += history(reservations[i].title, reservations[i].name, reservations[i].date, reservations[i].start, reservations[i].end, reservations[i].status);
+    document.getElementById("ajax-content").innerHTML = html;
+}
